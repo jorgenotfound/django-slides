@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Django</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <img src="media/logo-django.png" style="border:0px;background:none; width:200px;"/>
+                    <p>The web framework for perfectionists with deadlines</p>
+
+                </section>
+				<section>
+                    <section>
+                        <h2>Iniciemos..</h2>
+                        <code>
+                            django-admin.py startproject hellodjango
+                        </code>
+                    </section>
+                    <section>
+                        <h2>¿Qué no es Django?</h2>
+                        <img src="media/no_es_django.png"/>
+                    </section>
+                    <section>
+                        ¿Qué es Django?(gdh/ˈdʒæŋɡoʊ/jang-goh)
+                        <video class="stretch" data-autoplay src="media/django.mp4"></video>
+                    </section>
+                    <section>
+                        <p>Django es un framework de desarrollo web de código abierto, escrito en Python</p>
+                        desarrollado por Adrian Holovaty, Simon Willison, Jacob Kaplan-Moss y Wilson Miner mientras trabajaban en World Online, y originalmente se utilizó para administrar tres sitios web de noticias: The Lawrence Journal-World, lawrence.com y KUsports.com
+                        liberada al público bajo una licencia BSD en julio de 2005;
+                        el framework fue nombrado en alusión al guitarrista de jazz gitano Django Reinhardt. 
+                        En junio de 2008 fue anunciado que la recién formada Django Software Foundation se haría cargo de Django en el futuro
+                        Fue diseñado para resolver las tareas y los problemas más comunes del desarrollo de aplicaciones web.
+                    </section>
+
+                    <section>
+                        Características principales
+                        Tremendamente rápido (DRY) centrate en escribir tu aplicación.
+                        Multitud de componentes reutilizables(plug and play apps). Django se encarga de la configuración, autenticación, la administración de contenidos, cache, sesiones, etc...
+                        No se olvida de la seguridad, protección contra SQL injection, XSS, CSRF, entre otros
+                        Permite la escalabilidad
+                        Versatilidad - Todo tipo de aplicaciones
+
+    Un mapeador objeto-relacional.
+    Aplicaciones "enchufables" que pueden instalarse en cualquier página gestionada con Django.
+    Una API de base de datos robusta.
+    Un sistema incorporado de "vistas genéricas" que ahorra tener que escribir la lógica de ciertas tareas comunes.
+    Un sistema extensible de plantillas basado en etiquetas, con herencia de plantillas.
+    Un despachador de URLs basado en expresiones regulares.
+    Un sistema "middleware" para desarrollar características adicionales; por ejemplo, la distribución principal de Django incluye componentes middleware que proporcionan cacheo, compresión de la salida, normalización de URLs, protección CSRF y soporte de sesiones.
+    Soporte de internacionalización, incluyendo traducciones incorporadas de la interfaz de administración.
+    Documentación incorporada accesible a través de la aplicación administrativa (incluyendo documentación generada automáticamente de los modelos y las bibliotecas de plantillas añadidas por las aplicaciones).
+
+                    </section>
+                </section>
+                <section>Models</section>
+                <section>Views</section>
+                <section>Templates</section>
+                <section>Mucho más</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                loop: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
