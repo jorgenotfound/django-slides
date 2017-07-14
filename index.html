@@ -29,6 +29,20 @@
                     <p>The web framework for perfectionists with deadlines</p>
 
                 </section>
+                <section>
+                    <h2>Agenda</h2>
+                    <ul>
+                        <li>Introducción</li>
+                        <li>¿Qué no es Django?</li>
+                        <li>¿Qué es Django?</li>
+                        <li>¿MVC o MTV?</li>
+                        <li>Modelos</li>
+                        <li>Vistas</li>
+                        <li>Plantillas</li>
+                    </ul>
+
+
+                </section>
 				<section>
                     <section>
                         <h2>Iniciemos..</h2>
@@ -39,6 +53,9 @@
                     <section>
                         <h2>¿Qué no es Django?</h2>
                         <img src="media/no_es_django.png"/>
+                        <aside class="notes">
+                            Dyango => José Gómez Romero
+                        </aside>
                     </section>
                     <section>
                         ¿Qué es Django?(gdh/ˈdʒæŋɡoʊ/jang-goh)
@@ -77,10 +94,127 @@
                         </aside>
                     </section>
                 </section>
-                <section>Models</section>
-                <section>Views</section>
-                <section>Templates</section>
-                <section>Mucho más</section>
+                <section>
+                    <h2>¿MVC o MTV?</h2>
+                    <p>Model, View, Controller</p>
+                    <p>Model, Template, View</p>
+                    <aside class="notes">
+                        M: modelo (representación de la información)
+                        V: Vista (Cómo se va a mostrar esa información)
+                        C: Controlador (Responde a las peticiones, decide cuales datos)
+                        --
+                        M: modelo (representación de la información)
+                        T: Template (Cómo se va a mostrar esa información)
+                        V: Controlador (Responde a las peticiones)
+                    </aside>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Models</h2>
+                        <img class="stretch" src="media/models.jpeg"/>
+                        <aside class="notes">
+                            Crear modelos de datos desde Python.
+                            API para acceso a la base de datos.
+                            Aún se puede escribir SQL si es necesario.
+                            * Cada modelo es una subclase de "models.Model"
+                            * Cada atributo del modelo es un campo en la base de datos
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Consultas</h2>
+                        <img src="media/query1.jpeg"/>
+                        <img src="media/query4.jpeg"/>
+                        <img src="media/query3.jpeg"/>
+                        <img src="media/query5.jpeg"/>
+                        <aside class="notes">
+
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Migraciones</h2>
+                        <img src="media/migrate1.jpeg"/>
+                        <img src="media/migrate2.jpeg"/>
+                        <img src="media/migrate3.jpeg"/>
+                        <aside class="notes">
+                            Proyectar los cambios hechos a los modelos en las tablas de la base de datos
+                            south
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Mucho más</h2>
+                        <aside class="notes">
+                            Query Expressions - consultas avanzadas
+                            Ejecutar SQL
+                            Soporte para multiples bases de datos
+                            Fixtures - datos iniciales
+                        </aside>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Views</h2>
+                        <aside class="notes">
+                            Responde a las peticiones
+                            URLconf -> View
+                            Decoradores
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Vistas basadas en funciones</h2>
+                        <img src="media/view1.jpeg"/>
+                    </section>
+                    <section>
+                        <h2>Vistas basadas en clases</h2>
+                        <img src="media/views2.jpeg"/>
+                        <aside class="notes">
+                            Una forma distinta de responder a las peticiones
+                            Permiten organizar y reutilizar el código
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Un ejemplo...</h2>
+                        <img src="media/views3.jpeg"/>
+                    </section>
+                    <section>
+                        <h2>Un ejemplo...</h2>
+                        <img src="media/views6.jpeg"/>
+                    </section>
+                    <section>
+                        <h2>Un ejemplo...</h2>
+                        <img src="media/views7.jpeg"/>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Templates</h2>
+                        <aside class="notes">
+                            Generación dinámica de html
+                            Sistema de plantillas propio + jinja2
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Un ejemplo...</h2>
+                        <img src="media/templates2.jpeg"/>
+                    </section>
+                    <section>
+                        <h2>Un ejemplo...</h2>
+                        <img src="media/templates3.jpeg"/>
+                    </section>
+                </section>
+                <section>
+                    Y la lista sigue...
+                    <aside class="notes">
+                        Formularios
+                        Admin django
+                        Internacionalización
+
+                    </aside>
+                </section>
+
+                <section><h2>Gracias</h2></section>
 			</div>
 		</div>
 
