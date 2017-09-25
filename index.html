@@ -39,6 +39,8 @@
                         <li>Modelos</li>
                         <li>Vistas</li>
                         <li>Plantillas</li>
+                        <li>Testing</li>
+                        <li>y mucho más...</li>
                     </ul>
 
 
@@ -58,21 +60,16 @@
                         </aside>
                     </section>
                     <section>
-                        ¿Qué es Django?(gdh/ˈdʒæŋɡoʊ/jang-goh)
-                        <video class="stretch" data-autoplay src="media/django.mp4"></video>
-                    </section>
-                    <section>
                         <h2>¿Qué es Django?</h2>
                         <p>
                             Django es un framework de desarrollo web de código abierto, escrito en Python.
-                            Fue diseñado para resolver las tareas y los problemas más comunes del desarrollo
-                            de aplicaciones web.
                         </p>
-                        <p>Desde 2008 está a cargo de la Django Software Foundation</p>
                         <aside class="notes">
                             el framework fue nombrado en alusión al guitarrista de jazz gitano Django Reinhardt.
-                            desarrollado por Adrian Holovaty, Simon Willison, Jacob Kaplan-Moss y Wilson Miner mientras trabajaban en World Online, y originalmente se utilizó para administrar tres sitios web de noticias: The Lawrence Journal-World, lawrence.com y KUsports.com
-                            liberada al público bajo una licencia BSD en julio de 2005;
+                            desarrollado por Adrian Holovaty, Simon Willison, Jacob Kaplan-Moss y Wilson Miner mientras
+                            trabajaban en World Online(Kasas??), y originalmente se utilizó para administrar tres sitios web de
+                            noticias: The Lawrence Journal-World, lawrence.com y KUsports.com
+                            liberada al público bajo una licencia BSD en julio de 2005; 2008 Django software fundation
                     	</aside>
                     </section>
 
@@ -86,33 +83,48 @@
                             <li>Versatilidad</li>
                         </ul>
                         <aside class="notes">
-                            1.
+                            1. Modelos, ORM, CBV, aplicaciones de terceros que nos permite añadir funcionalidades
                             2. Django se encarga de la configuración, autenticación, la administración de contenidos, cache, sesiones, etc...
                             3. Protección contra SQL injection, XSS, CSRF, entre otros
-                            4.
+                            4. Trabajo con multiples bases de datos
                             5. Todo tipo de aplicaciones
                         </aside>
                     </section>
                 </section>
                 <section>
-                    <h2>¿MVC o MTV?</h2>
-                    <p>Model, View, Controller</p>
-                    <p>Model, Template, View</p>
-                    <aside class="notes">
-                        M: modelo (representación de la información)
-                        V: Vista (Cómo se va a mostrar esa información)
-                        C: Controlador (Responde a las peticiones, decide cuales datos)
-                        --
-                        M: modelo (representación de la información)
-                        T: Template (Cómo se va a mostrar esa información)
-                        V: Controlador (Responde a las peticiones)
-                    </aside>
+                    <section>
+                        <h2>¿MVC o MTV?</h2>
+                        <p>Model, View, Controller</p>
+                        <p>Model, Template, View</p>
+                        <aside class="notes">
+                            M: modelo (representación de la información)
+                            V: Vista (Cómo se va a mostrar esa información)
+                            C: Controlador (Responde a las peticiones, decide cuales datos)
+                            --
+                            M: modelo (representación de la información)
+                            T: Template (Cómo se va a mostrar esa información)
+                            V: Controlador (Responde a las peticiones)
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>¿MVC o MTV?</h2>
+                        <blockquote>
+                            "At the end of the day, of course, it comes down to getting stuff done. And, regardless of how things are named, Django gets stuff done in a way that’s most logical to us."
+                        </blockquote>
+                        <p>Fuente: <a href="https://docs.djangoproject.com/en/1.11/faq/general/#django-appears-to-be-a-mvc-framework-but-you-call-the-controller-the-view-and-the-view-the-template-how-come-you-don-t-use-the-standard-names">
+                            Django FAQ</a>
+                        </p>
+                    </section>
                 </section>
 
                 <section>
                     <section>
                         <h2>Models</h2>
-                        <img class="stretch" src="media/models.jpeg"/>
+                        <pre><code>
+    class Person(models.Model):
+        first_name = models.CharField(max_length=30)
+        last_name = models.CharField(max_length=30)
+                        </code></pre>
                         <aside class="notes">
                             Crear modelos de datos desde Python.
                             API para acceso a la base de datos.
@@ -123,22 +135,24 @@
                     </section>
                     <section>
                         <h2>Consultas</h2>
-                        <img src="media/query1.jpeg"/>
-                        <img src="media/query4.jpeg"/>
-                        <img src="media/query3.jpeg"/>
-                        <img src="media/query5.jpeg"/>
+                        <pre><code>
+    $ Person.objects.all()
+    $ Person.objects.filter(first_name='Carlos')
+    $ Person.objects.exclude(last_name='Perez')
+                        </pre></code>
                         <aside class="notes">
 
                         </aside>
                     </section>
                     <section>
                         <h2>Migraciones</h2>
-                        <img src="media/migrate1.jpeg"/>
-                        <img src="media/migrate2.jpeg"/>
-                        <img src="media/migrate3.jpeg"/>
+                        <pre><code>
+    $ python manage.py makemigrations
+    $ python manage.py migrate
+                        </pre></code>
                         <aside class="notes">
                             Proyectar los cambios hechos a los modelos en las tablas de la base de datos
-                            south
+                            south (< 1.6)
                         </aside>
                     </section>
                     <section>
@@ -158,33 +172,47 @@
                         <h2>Views</h2>
                         <aside class="notes">
                             Responde a las peticiones
+                            Decide qué información se va a mostrar (el cómo depende de las vistas)
                             URLconf -> View
                             Decoradores
                         </aside>
                     </section>
                     <section>
                         <h2>Vistas basadas en funciones</h2>
-                        <img src="media/view1.jpeg"/>
+                        <pre><code>
+    def hello(request, name):
+        persons = Person.objects.all()
+        return render("persons.html", {'list': persons})
+                        </pre></code>
                     </section>
                     <section>
                         <h2>Vistas basadas en clases</h2>
-                        <img src="media/views2.jpeg"/>
+                        <pre><code>
+    class PersonsListView(ListView):
+        model = models.Person
+
+    class PersonsCreateView(CreateView):
+        model = models.Person
+        form_class = forms.PersonForm
+                        </pre></code>
                         <aside class="notes">
                             Una forma distinta de responder a las peticiones
                             Permiten organizar y reutilizar el código
                         </aside>
                     </section>
                     <section>
-                        <h2>Un ejemplo...</h2>
-                        <img src="media/views3.jpeg"/>
-                    </section>
-                    <section>
-                        <h2>Un ejemplo...</h2>
-                        <img src="media/views6.jpeg"/>
-                    </section>
-                    <section>
-                        <h2>Un ejemplo...</h2>
-                        <img src="media/views7.jpeg"/>
+                        <h2>El formulario...</h2>
+                        <pre><code>
+    class PersonsForm(forms.ModelForm):
+        class Meta:
+            model = models.Person
+            fields = ('first_name', 'last_name',)
+
+                        </pre></code>
+                        <aside class="notes">
+                            Una forma distinta de responder a las peticiones
+                            Permiten organizar y reutilizar el código
+                        </aside>
                     </section>
                 </section>
                 <section>
@@ -197,12 +225,57 @@
                     </section>
                     <section>
                         <h2>Un ejemplo...</h2>
-                        <img src="media/templates2.jpeg"/>
+                        <pre><code>
+    &lt;html&gt;
+        &lt;head&gt;
+    		&lt;meta charset="utf-8"&gt;
+    		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
+    		&lt;title&gt; {% block page-title %}Django{% endblock %} &lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            {% block content %}
+            {% endblock %}
+        &lt;/body&gt;
+    &lt;/html>
+                    </pre></code>
                     </section>
                     <section>
-                        <h2>Un ejemplo...</h2>
-                        <img src="media/templates3.jpeg"/>
+                        <h2>Y entonces...</h2>
+                        <pre><code>
+            {% block content %}
+            &lt;h2&gt; Lista de personas &lt;/h2&gt;
+            &lt;ul&gt;
+            {% for person in persons %}
+                &lt;li&gt;
+                {{ person.first_name }}
+                &lt;/li&gt;
+            {% endfor %}
+            &lt;/ul&gt;
+            {% endblock %}
+                    </pre></code>
                     </section>
+                    <section>
+                        <h2>Y también...</h2>
+                        <pre><code>
+            {% block content %}
+            &lt;h2&gt; Registrar una persona &lt;/h2&gt;
+            &lt;form method="POST"&gt;
+            {{ form.as_table}}
+            &lt; button type='submit' &gt; Guardar &lt;/button&gt;
+            &lt;/form&gt;
+            {% endblock %}
+                    </pre></code>
+                    </section>
+                </section>
+                <section>
+                    Testing
+                    <aside class="notes">
+                        ...
+                        Usa la libreria standard de python: unittest.
+                        Tiene un enfoque basado en clases.
+                        La clase de django corre cada test en una transaccion aislada
+
+                    </aside>
                 </section>
                 <section>
                     Y la lista sigue...
