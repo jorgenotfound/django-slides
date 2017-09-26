@@ -203,7 +203,7 @@
                     <section>
                         <h2>El formulario...</h2>
                         <pre><code>
-    class PersonsForm(forms.ModelForm):
+    class PersonForm(forms.ModelForm):
         class Meta:
             model = models.Person
             fields = ('first_name', 'last_name',)
@@ -268,7 +268,20 @@
                     </section>
                 </section>
                 <section>
-                    Testing
+                        <h2>Testing</h2>
+                        <pre><code>
+    from django.test import TestCase
+    from .forms import PersonForm
+
+    class PersonFormTestCases(TestCase):
+
+        def test_person_form(self):
+            data_test = {'first_name' : Juan,
+                         'last_name': 'Valdes'}
+            tested_form = PersonForm(data=data_test)
+            self.assertTrue(tested_form.is_valid())
+
+                        </pre></code>
                     <aside class="notes">
                         ...
                         Usa la libreria standard de python: unittest.
