@@ -12,11 +12,12 @@
     "Hakim El Hattab <hakim.elhattab@gmail.com>"
   ],
   "dependencies": {
-    "headjs": "~1.0.3"
+    "headjs": "~1.0.3",
+    "font-awesome": "font-awsome#^4.7.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "git://github.com/jorgenotfound/django-slides.git"
   },
   "ignore": [
     "**/.*",

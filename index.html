@@ -8,6 +8,8 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -276,8 +278,8 @@
     class PersonFormTestCases(TestCase):
 
         def test_person_form(self):
-            data_test = {'first_name' : Juan,
-                         'last_name': 'Valdes'}
+            data_test = {'first_name' : 'Jon',
+                         'last_name': 'Snow'}
             tested_form = PersonForm(data=data_test)
             self.assertTrue(tested_form.is_valid())
 
@@ -300,7 +302,14 @@
                     </aside>
                 </section>
 
-                <section><h2>Gracias</h2></section>
+                <section>
+                    <h2>Fin.</h2>
+
+                    <p>
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i> @colombiapython | @pythoncucuta | @jorgenotfound
+                    </p>
+                    <p><i class="fa fa-github" aria-hidden="true"></i> github.com/jorgenotfound/django-slides</p>
+                </section>
 			</div>
 		</div>
 
